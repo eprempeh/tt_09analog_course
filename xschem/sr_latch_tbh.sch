@@ -1,9 +1,9 @@
-v {xschem version=3.4.8RC file_version=1.2}
+v {xschem version=3.4.5 file_version=1.2
+}
 G {}
 K {}
 V {}
 S {}
-F {}
 E {}
 N 600 -700 660 -700 {
 lab=s}
@@ -36,11 +36,11 @@ C {devices/iopin.sym} 1040 -700 0 0 {name=p3 lab=vdd}
 C {devices/opin.sym} 1000 -680 0 0 {name=p4 lab=q}
 C {devices/opin.sym} 1000 -660 0 0 {name=p10 lab=qb}
 C {devices/vsource.sym} 770 -480 0 0 {name=V1 value=1.8 savecurrent=false}
-C {devices/vsource.sym} 850 -480 0 0 {name=V2 value=PULSE(0 1.8 10n 1n 1n 40n 200n) savecurrent=false}
+C {devices/vsource.sym} 850 -480 0 0 {name=V2 value="PULSE(0 1.8 10n 1n 1n 40n 200n)" savecurrent=false}
 C {devices/lab_pin.sym} 770 -540 0 0 {name=p11 sig_type=std_logic lab=vdd}
 C {devices/lab_pin.sym} 850 -540 0 0 {name=p13 sig_type=std_logic lab=s}
 C {devices/lab_pin.sym} 940 -540 0 0 {name=p14 sig_type=std_logic lab=r}
-C {devices/vsource.sym} 940 -480 0 0 {name=V3 value=PULSE(0 1.8 10n 1n 1n 40n 200n) savecurrent=false}
+C {devices/vsource.sym} 940 -480 0 0 {name=V3 value="PULSE(0 1.8 10n 1n 1n 40n 200n)" savecurrent=false}
 C {devices/gnd.sym} 770 -420 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 850 -420 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 940 -420 0 0 {name=l3 lab=GND}
@@ -63,7 +63,7 @@ tclcommand="
   \}
 "
 }
-C {devices/code.sym} 1060 -520 0 0 {name=SIMULATION
+C {devices/code.sym} 1150 -510 0 0 {name=SIMULATION
 only_toplevel=true
 value="
 * .options filetype=ascii
@@ -71,7 +71,8 @@ value="
 .control
 
 tran 0.1n 500n
-plot v(s) v(r) v(q) v(qb)
+plot v(s) v(r) title 'Inputs: S and R'
+plot v(q) v(qb) title 'Outputs: Q and QB'
 *write ring_osc.raw
 .endc
 .end
