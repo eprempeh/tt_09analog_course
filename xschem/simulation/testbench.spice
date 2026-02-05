@@ -10,10 +10,12 @@ V1 vdd GND 1.8
 V2 s GND PULSE(0 1.8 10n 1n 1n 40n 400n)
 V3 r GND PULSE(0 1.8 110n 1n 1n 40n 400n)
 V4 vss GND 0
-R1 pin_out qb 500 m=1
-C1 pin_out GND 1p m=1
+R1 pin_out1 qb 500 m=1
+C1 pin_out1 GND 0.5p m=1
 Vmeas vdd net1 0
 .save i(vmeas)
+R2 pin_out2 q 500 m=1
+C2 pin_out2 GND 0.5p m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -30,6 +32,7 @@ save all
 tran 100p 1u
 write testbench.raw
 .endc
+.end
 
 
 
