@@ -1,0 +1,74 @@
+** sch_path: /home/eprempeh/tt_09analog_course/xschem/testbench.sch
+**.subckt testbench s r vdd q qb
+*.ipin s
+*.ipin r
+*.iopin vdd
+*.opin q
+*.opin qb
+x1 net1 s qb q vss r sr_latch
+V1 vdd GND 1.8
+V2 s GND PULSE(0 1.8 10n 1n 1n 40n 400n)
+V3 r GND PULSE(0 1.8 110n 1n 1n 40n 400n)
+V4 vss GND 0
+R1 pin_out qb 500 m=1
+C1 pin_out GND 1p m=1
+Vmeas vdd net1 0
+.save i(vmeas)
+**** begin user architecture code
+
+** opencircuitdesign pdks install
+.lib /home/eprempeh/pdk/sky130A/libs.tech/ngspice/sky130.lib.spice tt
+
+
+
+
+* ngspice commands
+.option savecurrents
+
+.control
+save all
+tran 100p 1u
+write testbench.raw
+.endc
+
+
+
+**** end user architecture code
+**.ends
+
+* expanding   symbol:  sr_latch.sym # of pins=6
+** sym_path: /home/eprempeh/tt_09analog_course/xschem/sr_latch.sym
+** sch_path: /home/eprempeh/tt_09analog_course/xschem/sr_latch.sch
+.subckt sr_latch vdd s qb q vss r
+*.ipin s
+*.ipin r
+*.opin qb
+*.opin q
+*.iopin vss
+*.iopin vdd
+x1 vdd s q qb vss nor_gate
+x2 vdd q qb r vss nor_gate
+.ends
+
+
+* expanding   symbol:  nor_gate.sym # of pins=5
+** sym_path: /home/eprempeh/tt_09analog_course/xschem/nor_gate.sym
+** sch_path: /home/eprempeh/tt_09analog_course/xschem/nor_gate.sch
+.subckt nor_gate vdd a y b vss
+*.ipin a
+*.ipin b
+*.opin y
+*.iopin vdd
+*.iopin vss
+XM1 net1 a vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM2 y b net1 vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM3 y a vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+XM4 y b vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
+.ends
+
+.GLOBAL GND
+.end

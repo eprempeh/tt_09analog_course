@@ -5,10 +5,11 @@
 *.iopin vdd
 *.opin q
 *.opin qb
-x1 vdd s qb q GND r sr_latch
+x1 vdd s qb q vss r sr_latch
 V1 vdd GND 1.8
 V2 s GND 0
 V3 r GND 0
+V4 vss GND 0
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -25,7 +26,7 @@ plot v(s)
 plot v(r)
 plot v(q)
 plot v(qb)
-*write ring_osc.raw
+write sr_latch.raw
 .endc
 .end
 
