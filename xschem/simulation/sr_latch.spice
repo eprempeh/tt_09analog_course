@@ -1,0 +1,19 @@
+** sch_path: /home/eprempeh/tt_09analog_course/xschem/sr_latch.sch
+.subckt sr_latch vdd s qb q vss r
+*.PININFO s:I r:I qb:O q:O vss:B vdd:B
+x1 vdd s q qb vss nor_gate
+x2 vdd q qb r vss nor_gate
+.ends
+
+* expanding   symbol:  nor_gate.sym # of pins=5
+** sym_path: /home/eprempeh/tt_09analog_course/xschem/nor_gate.sym
+** sch_path: /home/eprempeh/tt_09analog_course/xschem/nor_gate.sch
+.subckt nor_gate vdd a y b vss
+*.PININFO a:I b:I y:O vdd:B vss:B
+XM1 net1 a vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 m=1
+XM2 y b net1 vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 m=1
+XM3 y a vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 m=1
+XM4 y b vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 m=1
+.ends
+
+.end
