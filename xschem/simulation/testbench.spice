@@ -16,6 +16,13 @@ Vmeas vdd net1 0
 .save i(vmeas)
 R2 pin_out2 q 500 m=1
 C2 pin_out2 GND 0.5p m=1
+x2 s q r qb vss net2 sr_latch_parax
+R3 pin_out1_parax qb 500 m=1
+C3 pin_out1_parax GND 0.5p m=1
+Vmeas1 vdd net2 0
+.save i(vmeas1)
+R4 pin_out2_parax q 500 m=1
+C4 pin_out2_parax GND 0.5p m=1
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -53,6 +60,10 @@ x1 vdd s q qb vss nor_gate
 x2 vdd q qb r vss nor_gate
 .ends
 
+
+* expanding   symbol:  sr_latch_parax.sym # of pins=6
+** sym_path: /home/eprempeh/tt_09analog_course/xschem/sr_latch.sym
+.include /home/eprempeh/tt_09analog_course/mag/sr_latch.sim.spice
 
 * expanding   symbol:  nor_gate.sym # of pins=5
 ** sym_path: /home/eprempeh/tt_09analog_course/xschem/nor_gate.sym
