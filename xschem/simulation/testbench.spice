@@ -36,7 +36,7 @@ C4 pin_out2_parax GND 0.5p m=1
 
 .control
 save all
-tran 100p 1u
+tran 10n 1u
 write testbench.raw
 .endc
 .end

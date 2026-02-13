@@ -13,8 +13,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.0569641e-07
-x2=8.0390831e-07
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -34,8 +34,8 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.0569641e-07
-x2=8.0390831e-07
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
@@ -55,16 +55,15 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.0569641e-07
-x2=8.0390831e-07
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node="qb
-pin_out1
-pin_out1_parax"
-color="10 6 4"
+pin_out1"
+color="10 6"
 dataset=-1
 unitx=1
 logx=0
@@ -78,16 +77,15 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.0569641e-07
-x2=8.0390831e-07
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
 node="q
-pin_out2
-pin_out2_parax"
-color="12 5 4"
+pin_out2"
+color="12 5"
 dataset=-1
 unitx=1
 logx=0
@@ -101,15 +99,77 @@ ypos2=2
 divy=5
 subdivy=1
 unity=1
-x1=3.0569641e-07
-x2=8.0390831e-07
+x1=0
+x2=1e-06
 divx=5
 subdivx=1
 xlabmag=1.0
 ylabmag=1.0
-node="i(vmeas)
-i(vmeas1)"
-color="21 4"
+node=i(vmeas)
+color=21
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 2300 -1810 3100 -1410 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=1e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=pin_out1_parax
+color=13
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 3160 -1810 3960 -1410 {flags=graph
+y1=0
+y2=2
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=1e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=pin_out2_parax
+color=17
+dataset=-1
+unitx=1
+logx=0
+logy=0
+}
+B 2 2300 -1320 3100 -920 {flags=graph
+y1=-4e-06
+y2=0.00015
+ypos1=0
+ypos2=2
+divy=5
+subdivy=1
+unity=1
+x1=0
+x2=1e-06
+divx=5
+subdivx=1
+xlabmag=1.0
+ylabmag=1.0
+node=i(vmeas1)
+color=15
 dataset=-1
 unitx=1
 logx=0
@@ -238,7 +298,7 @@ C {devices/vsource.sym} 1880 -2510 0 0 {name=V3 value="PULSE(0 1.8 110n 1n 1n 40
 C {devices/gnd.sym} 1510 -2450 0 0 {name=l1 lab=GND}
 C {devices/gnd.sym} 1640 -2450 0 0 {name=l2 lab=GND}
 C {devices/gnd.sym} 1880 -2450 0 0 {name=l3 lab=GND}
-C {devices/code.sym} 1680 -2310 0 0 {name=TT_MODELS
+C {devices/code.sym} 1450 -2260 0 0 {name=TT_MODELS
 only_toplevel=true
 format="tcleval( @value )"
 value="
@@ -266,7 +326,7 @@ device="ceramic capacitor"}
 C {devices/gnd.sym} 2040 -2770 0 0 {name=l5 lab=GND}
 C {devices/lab_wire.sym} 1790 -2920 1 0 {name=p9 sig_type=std_logic lab=qb}
 C {devices/lab_pin.sym} 2140 -2920 2 0 {name=p16 sig_type=std_logic lab=pin_out1}
-C {devices/simulator_commands_shown.sym} 1950 -2310 0 0 {name=COMMANDS
+C {devices/simulator_commands_shown.sym} 1720 -2260 0 0 {name=COMMANDS
 simulator=ngspice
 only_toplevel=false 
 value="
@@ -275,12 +335,12 @@ value="
 
 .control
 save all
-tran 100p 1u 
+tran 10n 1u 
 write testbench.raw
 .endc
 .end
 "}
-C {devices/launcher.sym} 2340 -1920 0 0 {name=h5
+C {devices/launcher.sym} 2330 -1920 0 0 {name=h5
 descr="load waves" 
 tclcommand="xschem raw_read $netlist_dir/testbench.raw tran"
 }
