@@ -1,0 +1,14 @@
+ Python virtual environment
+venv/
+.venv/
+
+# Binary GDS files (can be regenerated from source)
+.gds
+
+# Large/Temporary Magic files
+.mag
+.log
+
+# Python cache
+__pycache__/
+.py[cod]
