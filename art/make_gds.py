@@ -1,30 +1,63 @@
 # SPDX-License-Identifier: Apache-2.0
 # SPDX-FileCopyrightText: 2024 Uri Shaked
 
+# SPDX-License-Identifier: Apache-2.0
+# SPDX-FileCopyrightText: 2024 Uri Shaked (modified)
+
 import gdspy
 from PIL import Image
 
-# Open the image
-img = Image.open("zedulo_logo.png")
+# ===============================
+# SETTINGS
+# ===============================
+INPUT_FILE = "zedulo_logo.png"
+OUTPUT_FILE = "zedulo.gds"
 
-LAYER = 69    # met2
-DATATYPE = 20 # drawing
-PIXEL_SIZE = 0.28 # um
+TARGET_SIZE = 100       # resize image to 300x300 (reduce complexity)
+THRESHOLD = 140          # black/white threshold
+PIXEL_SIZE = 0.45        # um (safe for sky130 poly, >= 0.15um min width)
+LAYER = 68               # poly
+DATATYPE = 20            # drawing
+# ===============================
 
-# Convert the image to grayscale
+# Load and resize image
+img = Image.open(INPUT_FILE)
+img = img.resize((TARGET_SIZE, TARGET_SIZE))
+
+# Convert to grayscale
 img = img.convert("L")
 
-layout = gdspy.Cell("zedulo_logo")
-for y in range(img.height):
-    for x in range(img.width):
-        color = img.getpixel((x, y))
-        if color < 128:
-            # Adjust y-coordinate to flip the image vertically
-            flipped_y = img.height - y - 1
-            layout.add(
-                gdspy.Rectangle((x * PIXEL_SIZE, flipped_y * PIXEL_SIZE),
-                                ((x + 1) * PIXEL_SIZE, (flipped_y + 1) * PIXEL_SIZE),
-                                layer=LAYER, datatype=DATATYPE))
+# Convert to strict black/white
+img = img.point(lambda p: 255 if p > THRESHOLD else 0)
 
-# Save the layout to a file
-gdspy.write_gds("zedulo.gds")
+layout = gdspy.Cell("zedulo_logo")
+
+# Merge horizontal pixels
+for y in range(img.height):
+    x = 0
+    while x < img.width:
+        if img.getpixel((x, y)) == 0:  # black pixel
+            start_x = x
+
+            # Find end of continuous black pixels
+            while x < img.width and img.getpixel((x, y)) == 0:
+                x += 1
+            end_x = x
+
+            flipped_y = img.height - y - 1
+
+            layout.add(
+                gdspy.Rectangle(
+                    (start_x * PIXEL_SIZE, flipped_y * PIXEL_SIZE),
+                    (end_x * PIXEL_SIZE, (flipped_y + 1) * PIXEL_SIZE),
+                    layer=LAYER,
+                    datatype=DATATYPE
+                )
+            )
+        else:
+            x += 1
+
+# Save GDS
+gdspy.write_gds(OUTPUT_FILE)
+print("GDS created:", OUTPUT_FILE)
+
