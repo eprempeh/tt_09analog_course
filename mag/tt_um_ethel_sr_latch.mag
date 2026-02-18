@@ -1,7 +1,7 @@
 magic
 tech sky130A
 magscale 1 2
-timestamp 1771423307
+timestamp 1771425138
 << metal1 >>
 rect 17160 5514 17560 5520
 rect 17560 5124 20494 5505
@@ -223,9 +223,9 @@ timestamp 1770730625
 transform 1 0 19230 0 1 7181
 box 862 -5005 12821 -1677
 use zedulo_logo  zedulo_logo_0 ~/tt_09analog_course/art
-timestamp 1771423184
-transform 1 0 11774 0 1 19566
-box 630 720 8280 8010
+timestamp 1771425041
+transform 1 0 11684 0 1 19296
+box 720 990 8190 7920
 << labels >>
 flabel metal4 s 28766 44952 28826 45152 0 FreeSans 480 90 0 0 clk
 port 0 nsew signal input

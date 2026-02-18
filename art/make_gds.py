@@ -16,7 +16,7 @@ OUTPUT_FILE = "zedulo.gds"
 TARGET_SIZE = 100       # resize image to 300x300 (reduce complexity)
 THRESHOLD = 140          # black/white threshold
 PIXEL_SIZE = 0.45        # um (safe for sky130 poly, >= 0.15um min width)
-LAYER = 68               # poly
+LAYER = 71               # poly
 DATATYPE = 20            # drawing
 # ===============================
 

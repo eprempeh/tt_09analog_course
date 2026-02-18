@@ -465,7 +465,7 @@ MACRO tt_um_ethel_sr_latch
       LAYER li1 ;
         RECT 111.800 14.405 151.210 24.045 ;
       LAYER met1 ;
-        RECT 62.020 10.550 160.255 137.880 ;
+        RECT 85.800 10.550 160.255 27.600 ;
       LAYER met2 ;
         RECT 71.340 5.910 158.965 27.590 ;
       LAYER met3 ;
