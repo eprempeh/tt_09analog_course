@@ -24,14 +24,13 @@ module tt_um_ethel_sr_latch (
 	sr_latch sr_latch_inst(
 		.vdd(VDPWR),
 		.vss(VGND),
-		.s(ua[3]),
-		.qb(ua[2]),
-		.q(ua[1]),
-		.r(ua[0])
+		.s(ui_in[1]),
+		.r(ui_in[0]),
+		.qb(uo_out[1]),
+		.q(uo_out[0])
+
 	);	
 
-     assign uo_out[0] = VGND;
-     assign uo_out[1] = VGND;
      assign uo_out[2] = VGND;
      assign uo_out[3] = VGND;
      assign uo_out[4] = VGND;
