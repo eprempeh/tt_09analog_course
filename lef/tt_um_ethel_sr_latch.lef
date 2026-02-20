@@ -30,7 +30,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[0]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 151.810 0.000 152.710 1.000 ;
@@ -39,7 +38,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[1]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 132.490 0.000 133.390 1.000 ;
@@ -48,7 +46,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[2]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 113.170 0.000 114.070 1.000 ;
@@ -57,7 +54,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[3]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 93.850 0.000 94.750 1.000 ;
@@ -66,7 +62,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[4]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 74.530 0.000 75.430 1.000 ;
@@ -75,7 +70,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[5]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 55.210 0.000 56.110 1.000 ;
@@ -84,7 +78,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[6]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 35.890 0.000 36.790 1.000 ;
@@ -93,7 +86,6 @@ MACRO tt_um_ethel_sr_latch
   PIN ua[7]
     DIRECTION INOUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 6.174000 ;
     PORT
       LAYER met4 ;
         RECT 16.570 0.000 17.470 1.000 ;
@@ -513,16 +505,12 @@ MACRO tt_um_ethel_sr_latch
         RECT 130.730 224.360 132.390 224.760 ;
         RECT 133.490 224.360 135.150 224.760 ;
         RECT 136.250 224.360 137.910 224.760 ;
-        RECT 139.010 224.360 140.670 224.760 ;
-        RECT 141.770 224.360 143.430 224.760 ;
-        RECT 144.530 224.360 146.190 224.760 ;
-        RECT 147.290 224.360 153.360 224.760 ;
-        RECT 0.990 221.160 153.360 224.360 ;
+        RECT 0.990 221.160 138.905 224.360 ;
         RECT 0.990 28.090 1.000 28.700 ;
         RECT 0.990 24.830 1.000 25.190 ;
         RECT 3.400 4.600 3.600 221.160 ;
-        RECT 6.400 4.600 153.360 221.160 ;
-        RECT 0.990 1.400 153.360 4.600 ;
+        RECT 6.400 4.600 138.905 221.160 ;
+        RECT 0.990 1.400 138.905 4.600 ;
         RECT 0.990 1.000 16.170 1.400 ;
         RECT 17.870 1.000 35.490 1.400 ;
         RECT 37.190 1.000 54.810 1.400 ;
@@ -530,8 +518,7 @@ MACRO tt_um_ethel_sr_latch
         RECT 75.830 1.000 93.450 1.400 ;
         RECT 95.150 1.000 112.770 1.400 ;
         RECT 114.470 1.000 132.090 1.400 ;
-        RECT 133.790 1.000 151.410 1.400 ;
-        RECT 153.110 1.000 153.360 1.400 ;
+        RECT 133.790 1.000 138.905 1.400 ;
   END
 END tt_um_ethel_sr_latch
 END LIBRARY

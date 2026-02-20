@@ -56,14 +56,6 @@ module tt_um_ethel_sr_latch (
      assign uio_oe[6] = VGND;
      assign uio_oe[7] = VGND;
 
-     assign ua[0] = VGND;
-     assign ua[1] = VGND;
-     assign ua[2] = VGND;
-     assign ua[3] = VGND;
-     assign ua[4] = VGND;
-     assign ua[5] = VGND;
-     assign ua[6] = VGND;
-     assign ua[7] = VGND;
 
 
 endmodule
