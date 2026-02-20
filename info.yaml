@@ -3,7 +3,7 @@ project:
   title:        "Digital sr latch"      # Project title
   author:       "Ethel Prempeh"      # Your name
   discord:      "Ethel"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "It is a bistable circuit made from cross-coupled analog devices that one bit of information"      # One line description of what your project does
+  description:  "It is a bistable digital circuit made from cross-coupled NOR gates that stores one bit of information"      # One line description of what your project does
   language:     "Digital" # other examples include Verilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
 

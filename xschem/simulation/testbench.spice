@@ -10,19 +10,19 @@ V1 vdd GND 1.8
 V2 s GND PULSE(0 1.8 10n 1n 1n 40n 400n)
 V3 r GND PULSE(0 1.8 110n 1n 1n 40n 400n)
 V4 vss GND 0
-R1 pin_out1 qb 500 m=1
-C1 pin_out1 GND 0.5p m=1
+R1 pin_out1 qb 500
+C1 pin_out1 GND 0.5p
 Vmeas vdd net1 0
 .save i(vmeas)
-R2 pin_out2 q 500 m=1
-C2 pin_out2 GND 0.5p m=1
+R2 pin_out2 q 500
+C2 pin_out2 GND 0.5p
 x2 s q r qb vss net2 sr_latch_parax
-R3 pin_out1_parax qb 500 m=1
-C3 pin_out1_parax GND 0.5p m=1
+R3 pin_out1_parax qb 500
+C3 pin_out1_parax GND 0.5p
 Vmeas1 vdd net2 0
 .save i(vmeas1)
-R4 pin_out2_parax q 500 m=1
-C4 pin_out2_parax GND 0.5p m=1
+R4 pin_out2_parax q 500
+C4 pin_out2_parax GND 0.5p
 **** begin user architecture code
 
 ** opencircuitdesign pdks install
@@ -40,7 +40,6 @@ tran 10n 1u
 write testbench.raw
 .endc
 .end
-
 
 
 **** end user architecture code
@@ -75,13 +74,13 @@ x2 vdd q qb r vss nor_gate
 *.iopin vdd
 *.iopin vss
 XM1 net1 a vdd vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
 XM2 y b net1 vdd sky130_fd_pr__pfet_01v8 L=0.15 W=1.5 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
 XM3 y a vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
 XM4 y b vss vss sky130_fd_pr__nfet_01v8 L=0.15 W=0.75 nf=1 ad='int((nf+1)/2) * W/nf * 0.29' as='int((nf+2)/2) * W/nf * 0.29' pd='2*int((nf+1)/2) * (W/nf + 0.29)'
-+ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1 m=1
++ ps='2*int((nf+2)/2) * (W/nf + 0.29)' nrd='0.29 / W' nrs='0.29 / W' sa=0 sb=0 sd=0 mult=1
 .ends
 
 .GLOBAL GND
